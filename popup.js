@@ -5,7 +5,12 @@ document.getElementById('download').addEventListener('click', function() {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
         fetch(`http://localhost:5000/download?url=${encodeURIComponent(url)}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('spinner').style.display = 'none';
                 if (data.error) {
@@ -16,7 +21,7 @@ document.getElementById('download').addEventListener('click', function() {
             })
             .catch(error => {
                 document.getElementById('spinner').style.display = 'none';
-                document.getElementById('message').textContent = `Error: ${error}`;
+                document.getElementById('message').textContent = `Error: ${error.message}`;
             });
     });
 });

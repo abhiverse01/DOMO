@@ -1,12 +1,14 @@
 from flask import Flask, request, jsonify
 import requests
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS
 
 @app.route('/')
 def home():
-    return "Welcome to the Universal File Downloader API"
+    return "DOMO - Universal File Downloader API"
 
 @app.route('/favicon.ico')
 def favicon():
