@@ -1,25 +1,19 @@
 {
-    "manifest_version": 2,
-    "name": "Universal File Downloader",
+    "manifest_version": 3,
+    "name": "DOMO",
     "version": "1.0",
     "permissions": [
       "activeTab"
     ],
     "background": {
-      "scripts": ["background.js"],
-      "persistent": false
+      "service_worker": "background.js"
     },
-    "browser_action": {
+    "action": {
       "default_popup": "popup.html",
       "default_icon": {
         "16": "icon.png",
         "48": "icon.png",
         "128": "icon.png"
-      }
-    },
-    "applications": {
-      "gecko": {
-        "id": "unique-id-for-your-extension@example.com"
       }
     }
   }

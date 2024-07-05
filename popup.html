@@ -11,11 +11,29 @@
             padding: 20px;
             background: linear-gradient(to bottom right, #e3f2fd, #90caf9);
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
         }
 
         h1 {
             font-size: 24px;
-            text-align: center;
             margin-bottom: 20px;
             color: #1e88e5;
         }
@@ -30,7 +48,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:disabled {
@@ -40,12 +58,14 @@
 
         button:hover:not(:disabled) {
             background-color: #1565c0;
+            transform: translateY(-2px);
         }
 
         .message {
             margin-top: 20px;
             font-size: 14px;
             text-align: center;
+            color: #555;
         }
 
         .spinner {
@@ -62,19 +82,11 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
-        /* Translucent background for buttons and messages */
-        .translucent-bg {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="translucent-bg">
+    <div class="card">
         <h1>Download File</h1>
         <button id="download">Download Current URL</button>
         <div class="spinner" id="spinner"></div>
