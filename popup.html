@@ -1,22 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Universal File Downloader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMO - Universal File Downloader</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-        h1 { font-size: 16px; }
-        button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; margin-top: 10px; }
-        button:disabled { background-color: #aaa; }
-        .message { margin-top: 10px; }
-        .spinner { display: none; margin: 10px auto; width: 40px; height: 40px; border: 4px solid rgba(0, 0, 0, .1); border-radius: 50%; border-top-color: #4CAF50; animation: spin 1s ease-in-out infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #e3f2fd, #90caf9);
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1e88e5;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:disabled {
+            background-color: #bbb;
+            cursor: not-allowed;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #1565c0;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 0, 0, .1);
+            border-radius: 50%;
+            border-top-color: #1e88e5;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Translucent background for buttons and messages */
+        .translucent-bg {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Download File</h1>
-    <button id="download">Download Current URL</button>
-    <div class="spinner" id="spinner"></div>
-    <div class="message" id="message"></div>
+    <div class="translucent-bg">
+        <h1>Download File</h1>
+        <button id="download">Download Current URL</button>
+        <div class="spinner" id="spinner"></div>
+        <div class="message" id="message"></div>
+    </div>
     <script src="popup.js"></script>
 </body>
 </html>
