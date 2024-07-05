@@ -4,6 +4,14 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Welcome to the Universal File Downloader API"
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
+
 @app.route('/download', methods=['GET'])
 def download_file():
     url = request.args.get('url')
@@ -12,6 +20,9 @@ def download_file():
 
     # Extract the file name from the URL
     file_name = url.split("/")[-1]
+
+    # Ensure the file name is safe
+    file_name = file_name.replace("/", "_").replace("\\", "_")
 
     try:
         response = requests.get(url)

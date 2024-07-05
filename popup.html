@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Universal File Downloader</title>
-  <style>
-    body { font-family: Arial, sans-serif; }
-    button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-  </style>
+    <title>Universal File Downloader</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { font-size: 16px; }
+        button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; margin-top: 10px; }
+        button:disabled { background-color: #aaa; }
+        .message { margin-top: 10px; }
+        .spinner { display: none; margin: 10px auto; width: 40px; height: 40px; border: 4px solid rgba(0, 0, 0, .1); border-radius: 50%; border-top-color: #4CAF50; animation: spin 1s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 </head>
 <body>
-  <button id="download">Download File</button>
-  <script src="popup.js"></script>
+    <h1>Download File</h1>
+    <button id="download">Download Current URL</button>
+    <div class="spinner" id="spinner"></div>
+    <div class="message" id="message"></div>
+    <script src="popup.js"></script>
 </body>
 </html>
