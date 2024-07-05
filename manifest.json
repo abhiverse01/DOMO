@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Universal File Downloader",
+    "version": "1.0",
+    "permissions": [
+      "activeTab"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    },
+    "applications": {
+      "gecko": {
+        "id": "unique-id-for-your-extension@example.com"
+      }
+    }
+  }
+  
