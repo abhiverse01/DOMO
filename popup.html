@@ -25,22 +25,42 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
             color: #1e88e5;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            outline: none;
         }
 
         button {
             display: block;
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 15px;
             background-color: #1e88e5;
             color: white;
@@ -48,7 +68,8 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         button:disabled {
@@ -59,6 +80,7 @@
         button:hover:not(:disabled) {
             background-color: #1565c0;
             transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .message {
@@ -88,7 +110,9 @@
 <body>
     <div class="card">
         <h1>Download File</h1>
-        <button id="download">Download Current URL</button>
+        <input type="text" id="url" placeholder="Enter URL" />
+        <input type="text" id="filename" placeholder="Enter Filename" />
+        <button id="download" disabled>Download File</button>
         <div class="spinner" id="spinner"></div>
         <div class="message" id="message"></div>
     </div>
